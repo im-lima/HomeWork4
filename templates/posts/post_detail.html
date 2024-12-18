@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.description }}</p>
+<p>Rating: {{ post.rate }}</p>
+<p>Created at: {{ post.created_at }}</p>
+<p>Last updated: {{ post.updated_at }}</p>
+<a href="/posts/" class="btn btn-primary">Back to Posts</a>
+{% endblock %}
