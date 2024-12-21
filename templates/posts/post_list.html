@@ -1,13 +1,18 @@
-{%extends 'base.html'%}
-{%block content%}
-{%for post in posts%}
-<div class="card" style="width: 18rem;">
-<!--  <img class="card-img-top" src="..." alt="Card image cap">-->
-  <div class="card-body">
-    <h5 class="card-title">{{post.title}}</h5>
-    <p class="card-text">{{post.description}}</p>
-    <p class="card-text" style="color: blue;">{{post.created_at}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+{% extends 'base.html' %}
+{% block content %}
+{% for post in posts %}
+<div class="card" style="width: 18rem; margin-bottom: 1rem;">
+    {% if post.image %}
+    <img src="{{post.image.url}}" class="card-img-top" alt="Image for {{ post.title }}">
+    {% else %}
+    <img src="/static/images.png" class="card-img-top" alt="Placeholder image">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.description }}</p>
+        <p class="card-text" style="color: blue;">{{ post.created_at }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
 </div>
-{%endfor%}
+{% endfor %}
+{% endblock %}
