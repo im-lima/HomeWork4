@@ -3,7 +3,7 @@
 {% for post in posts %}
 <div class="card" style="width: 18rem; margin-bottom: 1rem;">
     {% if post.image %}
-    <img src="{{post.image.url}}" class="card-img-top" alt="Image for {{ post.title }}">
+    <img src="{{ post.image.url }}" class="card-img-top" alt="Image for {{ post.title }}">
     {% else %}
     <img src="/static/images.png" class="card-img-top" alt="Placeholder image">
     {% endif %}
@@ -11,7 +11,7 @@
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.description }}</p>
         <p class="card-text" style="color: blue;">{{ post.created_at }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="/posts/{{ post.id }}/" class="btn btn-primary">Go to post</a>
     </div>
 </div>
 {% endfor %}

@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p>{{ post.description }}</p>
-<p>Rating: {{ post.rate }}</p>
-<p>Created at: {{ post.created_at }}</p>
-<p>Last updated: {{ post.updated_at }}</p>
-<a href="/posts/" class="btn btn-primary">Back to Posts</a>
+<div class="card" style="width: 18rem; margin: 20px auto;">
+    {% if post.image %}
+    <img src="{{ post.image.url }}" class="card-img-top" alt="Post Image">
+    {% else %}
+    <img src="/static/images.png" class="card-img-top" alt="Default Image">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.description }}</p>
+        <p class="card-text" style="color: blue;">Created at: {{ post.created_at }}</p>
+        <p class="card-text">Last updated: {{ post.updated_at }}</p>
+        <p class="card-text">Rating: {{ post.rate }}</p>
+        <a href="/posts/" class="btn btn-primary">Back to Posts</a>
+    </div>
+</div>
 {% endblock %}
